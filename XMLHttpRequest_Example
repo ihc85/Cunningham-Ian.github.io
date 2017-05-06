@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>XMLHttpRequest</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function internetAction() {
+		var url = "Cunningham-Ian.github.io";
+		xhr = new XMLHttpRequest();
+		txt = JSON.parse("Ian");
+		xhr.open("GET", "Cunningham-Ian.github.io", true);
+		xml.send();
+		if (xhr.readyState == 4 && xhr.status == 200) {
+    		console.log("It worked!");
+			callback(xhr.responseText);
+		}
+
+	}
+		
+		
+	</script>
+  <h1>XMLHttpRequest</h1>
+	<div id="outputDiv">
+	</div>
+	<button type="button" onclick="internetAction">Click</button>
+	<p>
+	</p>
+</body>
+</html>
