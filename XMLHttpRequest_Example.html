@@ -7,23 +7,22 @@
 <body>
 	<script type="text/javascript">
 	function internetAction() {
-		var url = "Cunningham-Ian.github.io";
 		xhr = new XMLHttpRequest();
-		txt = JSON.parse("Ian");
-		xhr.open("GET", "Cunningham-Ian.github.io", true);
-		xml.send();
-		if (xhr.readyState == 4 && xhr.status == 200) {
-    		console.log("It worked!");
-			callback(xhr.responseText);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+    			console.log("It worked!");
+				var txt = JSON.parse(xhr.responseText);
+				document.getElementById("responseTxt").innerHTML = "My name: " + txt.name;
+			}
 		}
-
+		xhr.open("GET", "Cunningham-Ian.github.io/JSON_file.json", true);
+		xhr.send();
 	}
-		
-		
 	</script>
   <h1>XMLHttpRequest</h1>
-	<div id="outputDiv">
-	</div>
+	<p id="responseTxt">
+		
+	</p>
 	<button type="button" onclick="internetAction">Click</button>
 	<p>
 	</p>
