@@ -1,30 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>XMLHttpRequest</title>
+<meta charset="utf-8">
+<title>XMLHttpRequest</title>
 </head>
 <body>
-	<script type="text/javascript">
-	function internetAction() {
-		xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState == 4 && xhr.status == 200) {
-    			console.log("It worked!");
-				var txt = JSON.parse(xhr.responseText);
-				document.getElementById("responseTxt").innerHTML = "My name: " + txt.name;
-			}
-		}
-		xhr.open("GET", "Cunningham-Ian.github.io/JSON_file.json", true);
-		xhr.send();
-	}
-	</script>
+<script type="text/javascript">
+function internetAction() {
+xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+if (xhr.readyState == 4 && xhr.status == 200) {
+ 
+var txt = JSON.parse(xhr.responseText);
+console.log(txt)
+ 
+document.getElementById("responseTxt").innerHTML = "My name: " + txt[0].name;
+}
+}
+xhr.open('GET', 'https://cunningham-Ian.github.io/JSON_file.json', true);
+ 
+xhr.send();
+}
+</script>
   <h1>XMLHttpRequest</h1>
-	<p id="responseTxt">
-		
-	</p>
-	<button type="button" onclick="internetAction">Click</button>
-	<p>
-	</p>
+<p id="responseTxt">
+ 
+</p>
+<button type="button" onclick="internetAction()">Click</button>
+<p>
+</p>
 </body>
 </html>
