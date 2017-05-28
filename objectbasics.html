@@ -1,109 +1,112 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<title>
-	Object-oriented examples
+		Object-oriented examples
 	</title>
 </head>
+
 <body>
 
-<script type="text/javascript">
+	<script type="text/javascript">
+		/*
+			Steps
+			1. Create person
+			2. Create and assign values to height and age properties
+			3. Create text string for the person
+			4. Display
+			5. Methods: eat (calories property), sleep (sleep property)
+			6. Child methods: grow (height property)
+		*/
 
-/*
-	Steps
-	1. Create person
-	2. Create and assign values to height and age properties
-	3. Create text string for the person
-	4. Display
-	5. Methods: eat (calories property), sleep (sleep property)
-	6. Child methods: grow (height property)
-*/
+		function names() {
 
-function names() {
+			// Creating me
+			var p = {
+				h: 70,
+				age: 22
+			};
+			var info = "My height is " + p.h + " inches, and my age is " + p.age;
+			document.getElementById("outputDiv").innerHTML = info;
 
-	// Creating me
-	var p = {h:70, age:22};
-	var info = "My height is " + p.h + " inches, and my age is " + p.age;
-	document.getElementById("outputDiv").innerHTML = info;
-	
-	// Creating my friend
-	
-	var p2 = {name:"Bob", DOB:"12/15/1994", height:0};
-	p2.height = 65;  // Change in height on this line
-	var info2 = "Bob's height: " + p2.height + "inches; Bob's date of birth: " + p2.DOB;
-	document.getElementById("outputDiv2").innerHTML = info2;
-	
-	// Creating the third person
-		
-		// Use this method to increase the person's height and return the new height
-		
-		public int newHeightAfterGrowthByInches(i) {
-			p3.height =+ i;
-			return p3.height;
+			// Creating my friend
+
+			var p2 = {
+				name: "Bob",
+				DOB: "12/15/1994",
+				height: 0
+			};
+			p2.height = 65; // Change in height on this line
+			var info2 = "Bob's height: " + p2.height + " inches; Bob's date of birth: " + p2.DOB;
+			document.getElementById("outputDiv2").innerHTML = info2;
+
+			// Creating user
+
+			var id = document.getElementById("userName").value;
+			var birthday = document.getElementById("userAge").value;
+			var h =
+				document.getElementById("userHeight").value;
+
+			var p3 = {
+				name: id,
+				DOB: birthday,
+				height: h
+			};
+			var age = Math.floor(p3.DOB);
+
+			var info3 = ("Your name is: " + id + "<br>" + "Your age is: " + age + "<br>" + "Your height is: " + p3.height);
+
+			document.getElementById("output3").innerHTML = info3;
+
+
 		}
-	// Creating and assigning (to the document) info about Jake 
-	
-	var p3 = new person(60, Jake, 60);
-	var info3 = "Jake's height: " + p3.height + "inches" + "</br>" +
-					"Jake's name: " + p3.name + "</br>" + "Jake's age: " + p3.age;
-	document.getElementById("outputDiv3").innerHTML = info3;
-	// p3.height = newHeightAfterGrowthByInches(3);
-	
-	var info4 = "Jake's new height: " + p3.height;
-	document.getElementById("outputDiv4").innerHTML = info4;
-	
-	// Inheritance example
-	c = new child(40);
-	c.prototype = new person(50, Jeanette, 30);
-	var info4 = "Child height: " + c.height;
-	c.grow(4);
-	var info5 = "Child height after 4 inch growth: " + c.height;
-	document.getElementById("output4").innerHTML = info4;
-	document.getElementById("output5").innerHTML = info5;
-	
-}
 
-function person(h, name, age) {
-		this.height = h;
-		this.name = name;
-		this.age = age;
-		
-		function returnInches(height) {
-			this.height = this.height + height;
+		function person(h, name, age) {
+			this.height = h;
+			this.name = name;
+			this.age = age;
+
+			function returnInches(height) {
+				this.height = this.height + height;
+			}
 		}
-}
-	
-function child(height) {
-		this.height = height;
-		
-		// Function unique to a child object instance
-		
-		function grow(inches) {
-			this.height += inches;
+
+		function child(height) {
+			this.height = height;
+
+			// Function unique to a child object instance
+
+			function grow(inches) {
+				this.height += inches;
+			}
 		}
-}
-</script>
+
+	</script>
 	<h1>Object-oriented examples</h1>
 	<h2>Object creation function</h2>
-		<div id="outputDiv">
-			This will become a place for info about me.
-		</div>
-		<div id="outputDiv2">
-			This will become a place for info about Bob.
-		</div>
-		<div id="outputDiv3">
-			This will become a place for info about Jake.
-		</div>
-		<div id="outputDiv4">
-			Jake's height after 4-inch growth.
-		</div>
-		<div id="output4">
-			Here you'll see the initial height of the child.
-		</div>
-		<div id="output5">
-			Here you'll see the final height of the child, after 4 inch growth.
-		</div>
-		<button type="button" onclick="names()">Click me</button>
+	<div id="outputDiv">
+		This will become a place for info about me.
+	</div>
+	<div id="outputDiv2">
+		This will become a place for info about Bob.
+	</div>
+	<p>Here, you may enter your own information:</p>
+	<p>Name:
+		<input id="userName">
+	</p>
+	<p>Age:
+		<input id="userAge">
+	</p>
+	<p>Height (in inches):
+		<input id="userHeight">
+	</p>
+	<button type="button" onclick="names()">Click me</button>
+	<div id="output3">
+		This will become a place for the information above.
+	</div>
+
 </body>
+
 </html>
