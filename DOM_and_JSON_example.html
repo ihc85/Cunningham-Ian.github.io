@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Session Storage with DOM and JSON</title>
+	<script>
+		function request1() {
+			if (typeof(Storage) !== "undefined") {
+				var request = new XMLHttpRequest();
+
+				request.open(
+					'GET',
+					'https://jsonplaceholder.typicode.com/users',
+					true
+				);
+
+				request.send();
+
+				request.onreadystatechange = function() {
+					if (request.status == 200 && request.readyState == 4) {
+						var obj = JSON.parse(request.responseText);
+
+						obj.forEach(function(item) {
+
+							var h1 = document.createElement('h1');
+							var p = document.createElement('p');
+							h1.innerHTML = item.name;
+							p.innerHTML = item.username;
+							document.getElementById("outputDiv").appendChild(h1);
+							document.getElementById("outputDiv").appendChild(p);
+						});
+					}
+				};
+			}
+		}
+
+	</script>
+</head>
+
+<body>
+	<div id="outputDiv">
+	</div>
+	<button id="button" type="button" onclick="request1()">Click</button>
+	<p>
+	</p>
+</body>
+
+</html>
