@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>JS events | Mobile, Other Properties</title>
+</head>
+
+<body>
+	<button type="button" onclick="events()">Click for JS events</button>
+	<div id="Shape">Picture of a square will go here.</div>
+	<script type="text/javascript">
+		function events() {
+			var sqImg = document.createElement("IMG");
+			sqImg.alt = "Picture of Square";
+			sqImg.src = "http://www.k6-geometric-shapes.com/image-files/prism-base-square.jpg";
+
+			// Create square variable
+			var square = sqImg.src;
+
+			sqImg.addEventListener('touchstart', function(e) {
+				touchobj = e.changedTouches[0];
+				boxleft = parseInt(box2.style.left);
+				startx = parseInt.touchobj.clientX;
+				e.preventDefault();
+			}, false)
+
+			sqImg.addEventListener('touchmove', function(e) {
+				touchobj = e.changedTouches[0];
+				window.alert();
+			}, false)
+
+			document.getElementById("Shape").appendChild = sqImg;
+
+			document.getElementById("Shape").innerHTML = sqImg.src;
+		}
+
+	</script>
+</body>
+
+</html>
