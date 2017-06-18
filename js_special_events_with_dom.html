@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>JS events | Mobile, Other Properties</title>
+</head>
+
+<body>
+<!--<button type="button" onclick="events()">Click for JS events</button>-->
+<div id="Shape" style="width: 100px; height: 200px;">Picture of a square will go here.</div>
+	<p>Try clicking and holding the mouse for the square above</p>
+<div id="status">Status: Independent</div>
+<script type="text/javascript">
+var sqImg = document.createElement("img");
+sqImg.alt = "Picture of Square";
+sqImg.src = "http://www.k6-geometric-shapes.com/image-files/prism-base-square.jpg";
+// Create square variable
+sqImg.addEventListener('touchstart', function(e) {
+	document.getElementById("Shape").style.css = "background-color: blue";
+	document.getElementById("Shape").style.cssText = "Selected";
+	document.getElementById("status").innerHTML = "Status: Selected"
+	e.preventDefault();
+}, false);
+
+sqImg.addEventListener('touchmove', function(e) {
+	touchobj = e.changedTouches[0];
+	var boxleft = parseInt(sqImg.style.left);
+	startx = parseInt(touchobj.clientX);
+	var dist = parseInt(touchobj.clientX) - startx;
+	sqImg.style.left = ( (boxleft + dist > 240)? 0 : ( (boxleft + dist < 0)? 0 : boxleft + dist) ) + 'px';
+	document.getElementById("status").innerHTML = "Status: Moving";
+	e.preventDefault();
+}, false);
+	
+sqImg.addEventListener('touchend', function(e) {
+	document.getElementById("status").innerHTML = "Status: Independent";
+	e.preventDefault();
+}, false);
+document.getElementById("Shape").appendChild(sqImg);
+</script>
+</body>
+
+</html>
