@@ -29,7 +29,7 @@
 			Enter your favorite animal: <input type="text" id="Animal">
 			</p>
 			<button type="button" onclick="tempStorage()">Click for temporary storage</button>
-			<button id="btn">Click to recall</button>
+			<button type="button" id="btn">Click to recall</button>
 			<p id="output">This is where the info will appear.</p>
 		
 			<p id="col">
@@ -48,12 +48,14 @@
 				3. Assign it to session storage
 			*/
 			function tempStorage() {
+				// Assign the user's favorite animal to the "creatures" local storage item
 				var animal = document.getElementById("Animal").value;
 				sessionStorage.setItem("creatures", animal);
 			}
 			
 			function display(){
-				document.getElementById("output").output = sessionStorage.getItem("creatures", animal);
+				// Assign the "creatures" session storage item to the first output
+				document.getElementById("output").output = sessionStorage.getItem("creatures");
 			}
 			/*
 				1. Create variable
@@ -61,11 +63,13 @@
 				3. Assign it to local storage
 			*/
 			function lclStorage() {
+				// Assign the user's favorite color to the myColor local storage item 
 				var color = document.getElementById("color").value;
 				localStorage.setItem("myColor", color);
 			}
 			function recall() {
-				document.getElementById("output2").innerHTML = localStorage.getItem("color");
+				// Assign the myColor local storage item to the second output
+				document.getElementById("output2").innerHTML = localStorage.getItem("myColor");
 			}
 		</script>
 	</body>
