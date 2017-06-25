@@ -1,76 +1,37 @@
 <!doctype html>
 <html lang="en">
-<!--
-	1. Create local storage item
-	   a. Click to store in computer
-	   b. How you will show it: 
-	      - "Your favorite color is: " + animal
-	2. Create session storage item
-	   a. Click to store in webpage 
-	   b. Store in webpage
--->
 	<head>
 		<meta charset="utf-8">
-		<title>Local and Session Storage Demo</title>
+		<title>HTML Media Tags</title>
+		<meta description="Video, Audio, and Canvas in HTML">
 	</head>
-	<style>
-		.local {
-			display: flex;
-			flex-flow: column;
-			margin-bottom: 5px;
-		}
-		
-		input:focus {
-			background-color: lightgray;
-		}
-	</style>
 	<body>
-			<p>
-			Enter your favorite animal: <input type="text" id="Animal">
-			</p>
-			<button type="button" onclick="tempStorage()">Click for temporary storage</button>
-			<button type="button" id="btn">Click to recall</button>
-			<p id="output">This is where the info will appear.</p>
 		
-			<p id="col">
-			Enter your favorite color: <input type="text" id="Color">
-			</p>
-			<button type="button" class="local" onclick="lclStorage()">Click for permanent storage</button>
-		
-		<button type="button" class="local" onclick="recall()">Click here to recall what was stored</button>
-		<p>Hint: Try refreshing the page, and then click the button again</p>
-		<p id="output2">This is where the info will appear.</p>
-		<script type="text/javascript">
-			
-			/*
-				1. Create variable
-				2. Assign it the input
-				3. Assign it to session storage
-			*/
-			function tempStorage() {
-				// Assign the user's favorite animal to the "creatures" local storage item
-				var animal = document.getElementById("Animal").value;
-				sessionStorage.setItem("creatures", animal);
-			}
-			
-			function display(){
-				// Assign the "creatures" session storage item to the first output
-				document.getElementById("output").output = sessionStorage.getItem("creatures");
-			}
-			/*
-				1. Create variable
-				2. Assign it the input
-				3. Assign it to local storage
-			*/
-			function lclStorage() {
-				// Assign the user's favorite color to the myColor local storage item 
-				var color = document.getElementById("color").value;
-				localStorage.setItem("myColor", color);
-			}
-			function recall() {
-				// Assign the myColor local storage item to the second output
-				document.getElementById("output2").innerHTML = localStorage.getItem("myColor");
-			}
-		</script>
+		<video width="300" height="300" controls preload="auto" style="display: block">
+			<source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+			A video would normally appear here...
+		</video>
+		<p>Below an abstract picture.  Make of it what you will!</p>
+		<canvas id="color" width="300px" height="200px" style="background-color: #FF5733  " >
+		Unfortunately, your browser does not support the tag that this text is inside of.
+		</canvas>
+		<audio src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></audio>
+		<p>
+			Click here to make the above picture change color:
+		</p>
+			<button id="change">Change</button>
+			<script type="text/javascript">
+		    
+			var canvas = document.getElementById("color");
+			var ctx = canvas.getContext("2d");
+			ctx.beginPath();
+			ctx.lineWidth = 10;
+			ctx.moveTo(5,5);
+			ctx.lineTo(5,155);
+			ctx.lineTo(150,195);
+			ctx.closePath();
+			ctx.fillStyle = "#AAFF00";
+			ctx.fill();
+	</script>
 	</body>
 </html>
