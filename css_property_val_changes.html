@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>CSS Animation and Transition</title>
+	<meta description="One square does an animation, and one does a series of transitions">
+</head>
+<style>
+	@keyframes rotate {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+	
+	p, div {
+	height: 200px;
+		width: 200px;
+		background-color: aliceblue;
+		transition: color 2s;
+		transition-timing-function: ease;
+	}
+	
+	div:hover {
+		color: coral;
+	}
+	
+	.rotate {
+		animation: rotate 2s;
+	}
+
+</style>
+
+<body>
+	<button id="button">Click here to spin the square below</button>
+	<p id="element">Text</p>
+
+	<button id="button2">Click here to spin the square below at 10 degree intervals</button>
+	<p id="element2">Text</p>
+
+	<div id="element3">Hover to see this square change color!</div>
+
+	<script type="text/javascript">
+		document.getElementById("button").addEventListener('click', rotate);
+
+		function rotate() {
+			document.getElementById("element").classList.add('rotate');
+		}
+
+		document.getElementById("button2").addEventListener('click', spin);
+
+		function spin() {
+			var square = document.getElementById("element2");
+			var number = 0;
+			// Run spin function 100 times (unless the interval gets cleared)
+			var time = setInterval(spin, 100);
+			/*
+				Animation that goes through series of transforms
+			*/
+			function spin() {
+				// Rotate at 10 degree intervals
+				square.style.transform = 'rotate(' + number + 'deg)';
+				number += 10;
+				// Stop animation at 360 degrees
+				// Overrides the setInterval function at line 49
+				if (number > 360) {
+					clearInterval(time);
+				}
+			}
+		}
+
+		document.getElementById("element3").addEventListener('click', rotation);
+		
+		function rotation(){
+			document.getElementById("element3").classList.add = "rotate";
+		}
+	</script>
+</body>
+
+</html>
