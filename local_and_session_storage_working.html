@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<!--
+	1. Create local storage item
+	   a. Click to store in computer
+	   b. How you will show it: 
+	      - "Your favorite color is: " + animal
+	2. Create session storage item
+	   a. Click to store in webpage 
+	   b. Store in webpage
+-->
+	<head>
+		<meta charset="utf-8">
+		<title>Local and Session Storage Demo</title>
+	</head>
+	<style>
+		.local {
+			display: flex;
+			flex-flow: column;
+			margin-bottom: 5px;
+		}
+		
+		input:focus {
+			background-color: lightgray;
+		}
+		body{
+		width: 920px;
+		margin: 0 auto;
+		}
+	</style>
+	<body>
+			<p>
+			Enter your favorite animal: <input type="text" id="Animal">
+			</p>
+			<button type="button" onclick="storeInSession()">Click for temporary storage</button>
+			<p id="output">This is where the info will appear.</p>
+		
+			<p id="col">
+			Enter your favorite color: <input type="text" id="Color">
+			</p>
+			<button type="button" class="local" onclick="storeInLocal()">Click for permanent storage</button>
+		
+			<p id="verify"></p>
+			<p>Hint: Try refreshing the page, and then click the button again</p>
+			<p id="output2">This is where the info will appear.</p>
+			<br>
+			<button type="button" class="local" onclick="recall()">Click here to recall what was stored</button>
+
+			
+			<script type="text/javascript">
+			/*
+				1. Create variable
+				2. Assign it the input
+				3. Assign it to session storage
+			*/
+			
+			function storeInSession() {
+				var animal = document.getElementById("Animal").value;
+				sessionStorage.setItem("animalName" , animal);
+				var output = document.getElementById("output");
+				output.style.color = 'red';
+				output.innerHTML = "Great! Your favorite animal is " + sessionStorage.getItem("animalName") + "."; 
+			}
+			/*
+				1. Create variable
+				2. Assign it the input
+				3. Assign it to local storage
+			*/
+			
+			function storeInLocal(){
+				var color = document.getElementById("Color").value;
+				localStorage.setItem("color", color);
+				var verify = document.getElementById("verify");
+				verify.style.backgroundColor = color;
+				verify.innerHTML = "You saved the color " + sessionStorage.getItem("color") + " in your local storage."; 
+			}
+			
+			function recall() {
+				var output = document.getElementById("output2");
+				output.style.backgroundColor = localStorage.getItem("color");
+				output.innerHTML = "I remember! Your color is "+localStorage.getItem("color")+"!!!";
+			}
+			
+		</script>
+	</body>
+</html>
