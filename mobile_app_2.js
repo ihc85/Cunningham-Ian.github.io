@@ -3,8 +3,7 @@ var button;
 window.onload({
 	//	document.getElementById("greeting").style.css = '';
 
-	button = document.getElementById("btn1");
-	button.onclick(function () {
+	button = document.getElementById("btn1").onclick(function() {
 		// Create input box(es)
 
 		var input = document.createElement("INPUT");
@@ -41,10 +40,10 @@ for (var i = 0; i < array1.length; i++) {
 		console.log(localStorage.getItem("option"));
 		break;
 	}
-	});
+	}
+		});
 
 //	button2.onclick(function() {
 	//	document.getElementById("location").style.display = 'none';
 	//	
 	//});
-});
