@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Weather Mobile App</title>
+		<meta description="Mobile app for retrieving weather data from the desired location">
+		<link rel=”stylesheet” type=”text/css” href=”mobile_app.css” media=”screen”>
+	</head>
+	
+	<body>
+		<section id="location">
+		<p id="greeting">Hello!</p>
+		<p id="question">
+			Which location type would you like to find results for?
+		</p>
+		<form>
+		<input type="radio" name="search-option" value="zip"> Zip Code<br>
+			<input type="radio" name="search-option" value="city"> City<br>
+			<input type="radio" name="search-option" value="lat+lon" id="lat,lon">Latitude, Longitude<br>
+			<input type="radio" name="search-option" value="station"> Weather Station<br>
+		</form>
+		<!-- Input box or boxes (if lat, lon) here -->
+			<button id="btn1">Submit</button>
+		</section>
+		<section id="overallData">
+			<p id="question1">
+			Which type of data would you like to look up?  Type "conditions", "forecast", or "hourly".
+		</p>
+			
+		<input type="text" name="data_request">
+			<button type="btn2" onclick="next()">Next</button>
+		</section>
+
+		<section id="display">
+			<div id="conditions">
+			<h2>Conditions</h2>
+				<p id="curr_con">Current Condition: </p>
+			<p id="curr_feel">Feels like: </p>
+				<p id="curr_p">Precipitation: </p>
+			<p id="hi/low">Hi/Low: </p>
+				</div>
+			<div id="forecast">
+			<h2>Forecast (10 days)</h2>
+			<!-- ***********************
+			Consider creating in JS file:
+			In first row, create blank space
+			Then create 10 table headers, 1 for each day
+
+			For each row:
+				Create table row
+				For each day 1-10:
+					Output the corresponding temperature/icon/condition
+				Close table row
+			End table
+			************************ -->
+			<dt>
+				
+			</dt>
+			</div>
+			
+			<div id="hourly">
+			<h2>Hourly</h2>
+				
+			</div>
+		</section>
+		
+		<a href="mobile_app.html">Start over</a>
+		<article id="results"></article>
+		<script src="mobile_app_2.js"></script>
+		<img id="logo" src="wulogo_rev.png">
+	</body>
+	<footer>
+		
+	</footer>
+</html>
