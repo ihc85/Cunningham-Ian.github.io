@@ -1,0 +1,18 @@
+#greeting {
+	color: coral;
+	transform: scale(1.1,1.1);
+	font-weight: 110;
+}
+
+#question {
+	
+}
+
+#response {
+	transition: scale 1s;
+}
+
+#response:select {
+	transform: scale(2,1.5)
+}
+
