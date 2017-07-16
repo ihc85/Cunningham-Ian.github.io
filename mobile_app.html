@@ -4,23 +4,24 @@
 		<meta charset="utf-8">
 		<title>Weather Mobile App</title>
 		<meta description="Mobile app for retrieving weather data from the desired location">
-		<link rel=”stylesheet” type=”text/css” href=”mobile_app.css” media=”screen”>
+		<link rel="stylesheet" type="text/css" href="mobile_app.css" media="screen">
 	</head>
 	
 	<body>
 		<section id="location">
-		<p id="greeting">Hello!</p>
+		<div id="greeting">Hello!</div>
 		<p id="question">
 			Which location type would you like to find results for?
 		</p>
 		<form>
-		<input type="radio" name="search-option" value="zip"> Zip Code<br>
-			<input type="radio" name="search-option" value="city"> City<br>
+		<input type="radio" name="search-option" value="zip">Zip Code<br>
+			<input type="radio" name="search-option" value="city">City, State/Country (some locations)<br>
 			<input type="radio" name="search-option" value="lat+lon" id="lat,lon">Latitude, Longitude<br>
-			<input type="radio" name="search-option" value="station"> Weather Station<br>
+<!--			<input type="radio" name="search-option" value="station"> Weather Station<br>-->
 		</form>
 		<!-- Input box or boxes (if lat, lon) here -->
-			<button id="btn1">Submit</button>
+			<button type="button" id="btn1">Select</button>
+			<button type="button" id="btn2">Submit</button>
 		</section>
 		<section id="overallData">
 			<p id="question1">
@@ -28,13 +29,14 @@
 		</p>
 			
 		<input type="text" name="data_request">
-			<button type="btn2" onclick="next()">Next</button>
+			<button type="button" id="btn3">Submit</button>
 		</section>
 
 		<section id="display">
 			<div id="conditions">
 			<h2>Conditions</h2>
 				<p id="curr_con">Current Condition: </p>
+<!--				<p id="curr_temp">Temperature:</p>-->
 			<p id="curr_feel">Feels like: </p>
 				<p id="curr_p">Precipitation: </p>
 			<p id="hi/low">Hi/Low: </p>
@@ -53,20 +55,20 @@
 				Close table row
 			End table
 			************************ -->
-			<dt>
-				
-			</dt>
+			<table id="forecast">
+			</table>
 			</div>
 			
 			<div id="hourly">
 			<h2>Hourly</h2>
-				
+				<table id="hourly">
+				</table>
 			</div>
 		</section>
 		
 		<a href="mobile_app.html">Start over</a>
 		<article id="results"></article>
-		<script src="mobile_app_2.js"></script>
+		<script src="mobile_app_3.js"></script>
 		<img id="logo" src="wulogo_rev.png">
 	</body>
 	<footer>
